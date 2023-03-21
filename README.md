@@ -1,6 +1,6 @@
 ###############################
 
-#BWA-GATK pipeline
+<header>BWA-GATK pipeline</header>
 
 This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) under Assoc. Prof Joanne Ngeow's lab, operating in the server in the Centre of Bioinformatics (CBI). It utilizes the BWA-GATK pipeline which converts paired short reads fastq files to variant annotation used for germline variant studies.
 
@@ -31,10 +31,11 @@ Change the extension of fastq files inside the config.yml file (optional).
 Change the path of the reference folder to the location of your reference folder (optional).  
 
 5. Do a dry run
-> snakemake -c 24 --config bed=no -np all
-Running snakemake on more than 4 samples at once would drastically reduce its performance.
-If running on 3 samples, change the -c 24 to -c 36
-If you wish to run it with a bed file, set --config bed=yes
+> snakemake -c 24 --config bed=no -np all  
+
+Running snakemake on more than 4 samples at once would drastically reduce its performance.  
+If running on 3 samples, change the -c 24 to -c 36  
+If you wish to run it with a bed file, set --config bed=yes  
 
 6. Run snakemake by removing the dry run (-n) flag
 > snakemake -c 24 --config bed=no -p all
