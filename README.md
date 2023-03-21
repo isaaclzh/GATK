@@ -44,8 +44,8 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 
 7. After running snakemake, you can generate an interactive HTML report for inspection of results together with parameters and code inside the browser  
 ```snakemake --report report.zip```
-
-Author: Lin Zhenhan Isaac
-Please email to zhenhanisaac.lin@ntu.edu.sg for any enquires.
-
-###############################
+<br/><br/>
+############################### 
+<br/><br/>
+Author: Lin Zhenhan Isaac  
+Please email to zhenhanisaac.lin@ntu.edu.sg for any enquires
