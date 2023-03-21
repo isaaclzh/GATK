@@ -1,4 +1,4 @@
-###
+###############################
 
 The following additional files are to be added to the reference folder.
 
@@ -55,4 +55,4 @@ https://basespace.illumina.com/s/otSPW8hnhaZR (a free BaseSpace account may be r
 > wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/main/SpliceAI.pm
 > mv SpliceAI.pm Plugins
 
-###
+###############################
