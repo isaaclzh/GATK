@@ -23,10 +23,10 @@ Below are the instructions to using this script:
 
 3. Upload your fastq files inside the fastq folder
 
-4. Change the number of chromosomes you wish to subsample inside the config.yml file (by default: chr1-22, X, Y)
-Snakemake runs on 12 cores per sample (by default).
-Change the extension of fastq files inside the config.yml file (optional).
-Change the path of the reference folder to the location of your reference folder (optional).
+4. Change the number of chromosomes you wish to subsample inside the config.yml file (default: chr1-22, X, Y).   
+Snakemake runs on 12 cores per sample (by default).  
+Change the extension of fastq files inside the config.yml file (optional).  
+Change the path of the reference folder to the location of your reference folder (optional).  
 
 5. Do a dry run
 > snakemake -c 24 --config bed=no -np all
