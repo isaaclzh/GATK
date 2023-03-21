@@ -1,6 +1,8 @@
 ###############################
 
-This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) under Assoc. Prof Joanne Ngeow's lab, operating in the server in the Centre of Bioinformatics (CBI). It utilizes the BWA-GATK workflow which converts paired short reads fastq files to variant annotation used for germline variant studies.
+#BWA-GATK pipeline
+
+This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) under Assoc. Prof Joanne Ngeow's lab, operating in the server in the Centre of Bioinformatics (CBI). It utilizes the BWA-GATK pipeline which converts paired short reads fastq files to variant annotation used for germline variant studies.
 
 This pipeline uses the following libraries
 - bcftools 1.16
@@ -24,7 +26,7 @@ Below are the instructions to using this script:
 3. Upload your fastq files inside the fastq folder
 
 4. Change the number of chromosomes you wish to subsample inside the config.yml file (default: chr1-22, X, Y).   
-Snakemake runs on 12 cores per sample (by default).  
+Snakemake runs on 12 cores per sample (default).  
 Change the extension of fastq files inside the config.yml file (optional).  
 Change the path of the reference folder to the location of your reference folder (optional).  
 
