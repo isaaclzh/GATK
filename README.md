@@ -28,14 +28,14 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 4. Change the number of chromosomes you wish to subsample inside the config.yml file (default: chr1-22, X, Y).   
 ```nano config/config.yml```
 
-> Snakemake runs on 12 cores per sample (default).  
-> Change the extension of fastq files inside the config.yml file (optional).  
-> Change the path of the reference folder to the location of your reference folder (optional).  
+> Snakemake runs on 12 cores per sample (default)  
+> Change the extension of fastq files inside the config.yml file (optional)  
+> Change the path of the reference folder to the location of your reference folder (optional)  
 
 5. Do a dry run  
 ```snakemake -c 24 --config bed=no -np all```  
 
-> Running snakemake on more than 4 samples at once would drastically reduce its performance.  
+> Running snakemake on more than 4 samples at once would drastically reduce its performance  
 > If running on 3 samples, change the -c 24 to -c 36  
 > If you wish to run it with a bed file, set --config bed=yes  
 
