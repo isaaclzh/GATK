@@ -2,7 +2,7 @@
 
 ## BWA-GATK pipeline
 
-This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) under Assoc. Prof Joanne Ngeow's lab, operating in the server in the Centre of Bioinformatics (CBI). It utilizes the **BWA-GATK** pipeline which converts paired short reads fastq files to variant annotation used for germline variant studies.
+This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) under Assoc. Prof Joanne Ngeow's lab, operating in the server in the Centre of Bioinformatics. It utilizes the **BWA-GATK** pipeline which converts paired short reads fastq to variant annotated files used for germline variant studies.
 
 This pipeline uses the following libraries:
 - bcftools 1.16
@@ -45,6 +45,7 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 7. After running snakemake, you can generate an interactive HTML report for inspection of results together with parameters and code inside the browser  
 ```snakemake --report report.zip```
 
+Author: Lin Zhenhan Isaac
 Please email to zhenhanisaac.lin@ntu.edu.sg for any enquires.
 
 ###############################
