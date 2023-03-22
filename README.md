@@ -7,6 +7,7 @@ This script is developed by the Lee Kong Chian School of Medicine (LKCMedicine) 
 This pipeline uses the following libraries:
 - bcftools 1.16
 - bwa 0.7.17
+- gatk 4.3.0
 - htslib 1.16
 - python 3.10.7
 - samtools 1.16.1
