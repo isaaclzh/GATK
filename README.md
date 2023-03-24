@@ -18,13 +18,16 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 
 ### Below are the instructions to using this script:
 
-1. Before running the pipeline, make sure that the reference libraries and all the additional files are already generated  
+1. Before running, make sure that all reference libraries and additional files are already generated  
 ```source config/reference.sh```
 
 2. Load the libraries  
 ```source config/lib.sh```
 
-3. Upload your fastq files inside the fastq folder
+3. Upload your paired fastq inside the fastq folder  
+
+* {file_name}_1{file_extension} for forward reads
+* {file_name}_2{file_extension} for reverse reads
 
 4. Change the number of chromosomes you wish to subsample inside the config.yml file (default: chr1-22, X, Y).   
 ```nano config/config.yml```
@@ -34,17 +37,17 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 > Change the path of the reference folder to the location of your reference folder (optional)  
 
 5. Do a dry run  
-```snakemake -c 24 --config bed=no -np all```  
+```snakemake -c 24 --config bed=yes -np all```  
 
 > Running snakemake on more than 4 samples at once would drastically reduce its performance  
 > If running on 3 samples, change the -c 24 to -c 36  
-> If you wish to run it with a bed file, set --config bed=yes  
+> If you wish to run it without a bed file, set --config bed=no (applicable to steps 5 - 7)
 
 6. Run snakemake by removing the dry run (-n) flag  
-```snakemake -c 24 --config bed=no -p all```
+```snakemake -c 24 --config bed=yes -p all```
 
-7. After running snakemake, you can generate an interactive HTML report for inspection of results together with parameters and code inside the browser  
-```snakemake --report report.zip```
+7. After running snakemake, you can generate an interactive HTML report for inspection of results inside the browser  
+```snakemake --config bed=yes --report report.zip```
 <br/><br/>
 ############################### 
 <br/><br/>
