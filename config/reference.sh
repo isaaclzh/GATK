@@ -21,6 +21,7 @@ wget -P config/reference https://krishna.gs.washington.edu/download/CADD/v1.6/GR
 wget -P config/reference https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz.tbi
 
 # GRCh38_Verily_v1.genome.fa
+wget -P config/reference https://storage.googleapis.com/genomics-public-data/references/GRCh38_Verily/README.txt
 wget -P config/reference https://storage.googleapis.com/genomics-public-data/references/GRCh38_Verily/GRCh38_Verily_v1.genome.fa
 wget -P config/reference https://storage.googleapis.com/genomics-public-data/references/GRCh38_Verily/GRCh38_Verily_v1.genome.fa.fai
 wget -P config/reference https://storage.googleapis.com/genomics-public-data/references/GRCh38_Verily/bwa-0.7.12/GRCh38_Verily_v1.genome.fa.alt
