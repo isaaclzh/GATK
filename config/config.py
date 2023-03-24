@@ -3,7 +3,7 @@ import re
 import sys
 import pandas as pd
 
-files = os.listdir("fastq")
+files = [f for f in os.listdir("fastq") if not f.startswith('.')]
 df = pd.DataFrame(files)
 
 # Generating samples.tsv file
