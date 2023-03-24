@@ -74,7 +74,7 @@ rule quality_check:
         samtools flagstat {input} > {output.flagstat}
         """
 
-rule sequencing_depth:
+rule collate_sequencing_depth:
     output:
         "config/misc/depth.txt"
     input:
