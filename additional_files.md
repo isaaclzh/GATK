@@ -1,6 +1,6 @@
 ###############################
 
-The following additional files are to be added to the reference folder:  
+Add the following files into the reference folder:  
 
 1. GRCh38_Verily_v1.genome.fa.dict
 
