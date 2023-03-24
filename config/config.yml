@@ -1,7 +1,6 @@
 ref:
   name: GRCh38_Verily_v1
   species: homo_sapiens
-  release: 107
   build: GRCh38
   # Reference genome
   path: "config/reference/GRCh38_Verily_v1.genome.fa"
