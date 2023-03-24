@@ -93,7 +93,7 @@ params:
         - "--assembly GRCh38"
         - "--cache_version 107"
         - "--offline"
-        - "--merged"
+        - "--merged" # Able to change it to either --refseq for refseq cache or --merged for merged cache
         - "--use_transcript_ref"
         - "--transcript_version"
         - "--format vcf"
