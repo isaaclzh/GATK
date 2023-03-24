@@ -61,7 +61,7 @@ rule mark_duplicates:
 
 rule quality_check:
     output:
-        coverage = "results/{sample}/qc/coverage.txt"
+        coverage = "results/{sample}/qc/coverage.txt",
         flagstat = "results/{sample}/qc/flagstat.txt"
     input:
         "results/{sample}/bam/{sample}.bwa.sortdup.bam"
