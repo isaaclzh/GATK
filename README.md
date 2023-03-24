@@ -26,8 +26,8 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 
 3. Upload your paired fastq inside the fastq folder  
 
-* {file_name}_1{file_extension} for forward reads
-* {file_name}_2{file_extension} for reverse reads
+* **{file_name}_1{file_extension}** for forward reads
+* **{file_name}_2{file_extension}** for reverse reads
 
 4. Change the number of chromosomes you wish to subsample inside the config.yml file (default: chr1-22, X, Y).   
 ```nano config/config.yml```
