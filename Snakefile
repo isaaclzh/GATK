@@ -224,8 +224,8 @@ else:
 
 rule genotype_gvcfs:
     output:
-        vcf = temp("results/{sample}/vcf/{sample}_to_annotate.vcf.gz"),
-        index = temp("results/{sample}/vcf/{sample}_to_annotate.vcf.gz.tbi")
+        vcf = protected("results/{sample}/vcf/{sample}_to_annotate.vcf.gz"),
+        index = protected("results/{sample}/vcf/{sample}_to_annotate.vcf.gz.tbi")
     input:
         gvcf = "results/{sample}/gvcf/{sample}.g.vcf.gz",
         index = "results/{sample}/gvcf/{sample}.g.vcf.gz.tbi"
