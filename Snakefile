@@ -15,7 +15,7 @@ chroms = pd.read_csv(config["ref"]["idx"], header=None, sep = '\t').iloc[:,0].va
 rule all:
     input:
         expand("results/{sample}/gvcf/{sample}.g.vcf.gz", sample = samples),
-        expand("results/annotation/chr{chrom}.vep", chrom = config["ref"]["chr"])
+        expand("results/annotation/chr{chrom}_recalibrated.vep", chrom = config["ref"]["chr"])
 
 rule bwa_alignment:
     output:
@@ -415,7 +415,7 @@ else:
 
 rule annotate:
     output:
-        "results/annotation/chr{chrom}.vep"
+        "results/annotation/chr{chrom}_recalibrated.vep"
     input:
         vcf = "results/cohort/chr{chrom}_recalibrated.vcf.gz",
         index = "results/cohort/chr{chrom}_recalibrated.vcf.gz.tbi"
