@@ -28,35 +28,42 @@ params:
         - "-OQ true"
         - "-OBI false"
         - "--add-output-sam-program-record true"
+        - "--tmp-dir config/TMP"
     ApplyVQSR_INDEL:
         - "-mode INDEL"
         - "-ts-filter-level 99.7"
         - "--create-output-variant-index true"
+        - "--tmp-dir config/TMP"
     ApplyVQSR_SNP:
         - "-mode SNP"
         - "-ts-filter-level 99.7"
         - "--create-output-variant-index true"
+        - "--tmp-dir config/TMP"
     BaseRecalibrator:
         - "-OQ true"
         - "--known-sites config/reference/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
         - "--known-sites config/reference/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
         - "--known-sites config/reference/Homo_sapiens_assembly38.known_indels.vcf.gz"
+        - "--tmp-dir config/TMP"
     CNNScoreVariants:
         - "-tensor-type read_tensor"
         - "-OVI true"
         - "--tmp-dir config/TMP"
     CombineGVCFs:
         - "-OVI true"
+        - "--tmp-dir config/TMP"
     FilterVariantTranches:
         - "--resource config/reference/hapmap_3.3.hg38.vcf.gz"
         - "--resource config/reference/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
         - "--info-key CNN_2D"
         - "--snp-tranche 99.95"
         - "--indel-tranche 99.4"
+        - "--tmp-dir config/TMP"
     GenomicsDBImport:
         - "--batch-size 20"
         - "--genomicsdb-shared-posixfs-optimizations true"
         - "--bypass-feature-reader true"
+        - "--tmp-dir config/TMP"
     GenotypeGVCFs:
         - "-G StandardAnnotation -G AS_StandardAnnotation -G StandardHCAnnotation"
         - "--use-new-qual-calculator true"
@@ -65,6 +72,7 @@ params:
         - "--native-pair-hmm-threads 1"
         - "-G StandardAnnotation -G AS_StandardAnnotation -G StandardHCAnnotation"
         - "-ERC GVCF"
+        - "--tmp-dir config/TMP"
     VariantRecalibrator_INDEL:
         - "-an QD -an ReadPosRankSum -an FS -an SOR"
         - "-mode INDEL"
@@ -75,6 +83,7 @@ params:
         - "--resource:mills,known=false,training=true,truth=true,prior=12 config/reference/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
         - "--resource:axiomPoly,known=false,training=true,truth=false,prior=10 config/reference/Axiom_Exome_Plus.genotypes.all_populations.poly.hg38.vcf.gz"
         - "--resource:dbsnp,known=true,training=false,truth=false,prior=2 config/reference/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
+        - "--tmp-dir config/TMP"
     VariantRecalibrator_SNP:
         - "-an QD -an ReadPosRankSum -an FS -an SOR"
         - "-mode SNP"
@@ -86,6 +95,7 @@ params:
         - "--resource:omni,known=false,training=true,truth=false,prior=12 config/reference/1000G_omni2.5.hg38.vcf.gz"
         - "--resource:1000G,known=false,training=true,truth=false,prior=10 config/reference/1000G_phase1.snps.high_confidence.hg38.vcf.gz"
         - "--resource:dbsnp,known=true,training=false,truth=false,prior=7 config/reference/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
+        - "--tmp-dir config/TMP"
   picard:
     MarkDuplicates: 
         - "--VALIDATION_STRINGENCY SILENT"
