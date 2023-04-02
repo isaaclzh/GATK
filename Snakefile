@@ -157,7 +157,6 @@ if list(map(lambda chrom:int(chrom) if chrom.isdigit() else chrom, [chrom[3:] fo
             """
             ({gatk} --java-options "-Xmx16g" HaplotypeCaller \
             -I {input.bam} -O {output.gvcf} -L config/misc/chr{wildcards.chrom}.bed -R {ref} {params}) 2> {log}
-            rm config/misc/chr{wildcards.chrom}.bed
             """
 
     rule combine_gvcfs:
