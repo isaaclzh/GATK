@@ -415,7 +415,7 @@ else:
 
 rule annotate:
     output:
-        "results/annotation/chr{chrom}_recalibrated.vep"
+        temp("results/annotation/chr{chrom}_recalibrated.vep")
     input:
         vcf = "results/cohort/chr{chrom}_recalibrated.vcf.gz",
         index = "results/cohort/chr{chrom}_recalibrated.vcf.gz.tbi"
