@@ -276,8 +276,8 @@ rule genotype_cohort:
 
 rule cohort_vcf:
     output:
-        vcf_cohort = protected("results/cohort/raw_variants.vcf.gz"),
-        index_cohort = protected("results/cohort/raw_variants.vcf.gz.tbi")
+        vcf_cohort = temp("results/cohort/raw_variants.vcf.gz"),
+        index_cohort = temp("results/cohort/raw_variants.vcf.gz.tbi")
     input:
         vcf = expand("results/cohort/chr{chrom}_cohort.vcf.gz", chrom = config['ref']['chr']),
         index = expand("results/cohort/chr{chrom}_cohort.vcf.gz.tbi", chrom = config['ref']['chr'])
@@ -384,8 +384,8 @@ if config['bed'].lower() == 'no':
 elif config['bed'].lower() == 'yes':
     rule apply_bed_regions:
         output:
-            vcf = protected("results/cohort/recalibrated_snps_indels_bed.vcf.gz"),
-            index = protected("results/cohort/recalibrated_snps_indels_bed.vcf.gz.tbi")
+            vcf = temp("results/cohort/recalibrated_snps_indels_bed.vcf.gz"),
+            index = temp("results/cohort/recalibrated_snps_indels_bed.vcf.gz.tbi")
         input:
             vcf = "results/cohort/recalibrated_snps_indels.vcf.gz",
             index = "results/cohort/recalibrated_snps_indels.vcf.gz.tbi"
@@ -429,7 +429,7 @@ rule annotate:
 
 rule cohort_vep:
     output:
-        "results/annotation/cohort.vep"
+        protected("results/annotation/cohort.vep")
     input:
         expand("results/annotation/chr{chrom}_recalibrated.vep", chrom = config['ref']['chr'])
     shell:
