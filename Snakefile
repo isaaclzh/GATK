@@ -224,8 +224,8 @@ else:
 
 rule genotype_gvcfs:
     output:
-        vcf = protected("results/{sample}/vcf/{sample}_to_annotate.vcf.gz"),
-        index = protected("results/{sample}/vcf/{sample}_to_annotate.vcf.gz.tbi")
+        vcf = protected("results/{sample}/vcf/{sample}.vcf.gz"),
+        index = protected("results/{sample}/vcf/{sample}.vcf.gz.tbi")
     input:
         gvcf = "results/{sample}/gvcf/{sample}.g.vcf.gz",
         index = "results/{sample}/gvcf/{sample}.g.vcf.gz.tbi"
@@ -244,8 +244,8 @@ rule genomicsdb:
         temp(directory("config/database_chr{chrom}"))
     input:
         cohort = "config/misc/cohort.txt",
-        vcf = expand("results/{sample}/vcf/{sample}_to_annotate.vcf.gz", sample = samples),
-        index_vcf = expand("results/{sample}/vcf/{sample}_to_annotate.vcf.gz.tbi", sample = samples),
+        vcf = expand("results/{sample}/vcf/{sample}.vcf.gz", sample = samples),
+        index_vcf = expand("results/{sample}/vcf/{sample}.vcf.gz.tbi", sample = samples),
         gvcf = expand("results/{sample}/gvcf/{sample}.g.vcf.gz", sample = samples),
         index_gvcf = expand("results/{sample}/gvcf/{sample}.g.vcf.gz.tbi", sample = samples)
     params:
