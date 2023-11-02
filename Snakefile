@@ -368,13 +368,26 @@ rule apply_vqsr_indels:
         """
 
 if config['bed'].lower() == 'no':
+    rule extract_pass:
+        output:
+            vcf = protected("results/cohort/recalibrated_snps_indels_pass.vcf.gz"),
+            index = protected("results/cohort/recalibrated_snps_indels_pass.vcf.gz.tbi")
+        input:
+            vcf = "results/cohort/recalibrated_snps_indels.vcf.gz",
+            index = "results/cohort/recalibrated_snps_indels.vcf.gz.tbi"
+        shell:
+            """
+            bcftools view -f 'PASS,.' -Oz {input.vcf} \
+            | bcftools norm -m-any --check-ref -w -f {ref} - -o {output.vcf}
+            """
+
     rule split_vcfs:
         output:
             vcf = temp("results/cohort/chr{chrom}_recalibrated.vcf.gz"),
             index = temp("results/cohort/chr{chrom}_recalibrated.vcf.gz.tbi")
         input:
-            vcf = "results/cohort/recalibrated_snps_indels.vcf.gz",
-            index = "results/cohort/recalibrated_snps_indels.vcf.gz.tbi"
+            vcf = "results/cohort/recalibrated_snps_indels_pass.vcf.gz",
+            index = "results/cohort/recalibrated_snps_indels_pass.vcf.gz.tbi"
         shell:
             """
             bcftools view {input.vcf} -Oz -r chr{wildcards.chrom} -o {output.vcf}
@@ -397,13 +410,26 @@ elif config['bed'].lower() == 'yes':
             tabix {output.vcf}
             """
 
+    rule extract_pass:
+        output:
+            vcf = protected("results/cohort/recalibrated_snps_indels_bed_pass.vcf.gz"),
+            index = protected("results/cohort/recalibrated_snps_indels_bed_pass.vcf.gz.tbi")
+        input:
+            vcf = "results/cohort/recalibrated_snps_indels_bed.vcf.gz",
+            index = "results/cohort/recalibrated_snps_indels_bed.vcf.gz.tbi"
+        shell:
+            """
+            bcftools view -f 'PASS,.' -Oz {input.vcf} \
+            | bcftools norm -m-any --check-ref -w -f {ref} - -o {output.vcf}
+            """
+
     rule split_vcfs:
         output:
             vcf = temp("results/cohort/chr{chrom}_recalibrated.vcf.gz"),
             index = temp("results/cohort/chr{chrom}_recalibrated.vcf.gz.tbi")
         input:
-            vcf = "results/cohort/recalibrated_snps_indels_bed.vcf.gz",
-            index = "results/cohort/recalibrated_snps_indels_bed.vcf.gz.tbi"
+            vcf = "results/cohort/recalibrated_snps_indels_bed_pass.vcf.gz",
+            index = "results/cohort/recalibrated_snps_indels_bed_pass.vcf.gz.tbi"
         shell:
             """
             bcftools view {input.vcf} -Oz -r chr{wildcards.chrom} -o {output.vcf}
