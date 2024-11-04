@@ -52,4 +52,4 @@ This pipeline was benchmarked on Ashkenazim Son HG002 (https://www.nist.gov/prog
 ############################### 
 <br/><br/>
 Author: Lin Zhenhan Isaac  
-Please email to zhenhanisaac.lin@ntu.edu.sg for any enquires
+Email: linz0066@ntu.edu.sg
